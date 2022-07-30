@@ -17,4 +17,4 @@ const galleryPics = galleryItems.map((galleryPics) =>
 gallery.innerHTML = galleryPics;
 
 
-new SimpleLightbox(".gallery a", { captionDelay: 250 });
+new SimpleLightbox(".gallery a", { captionDelay: 300 });
