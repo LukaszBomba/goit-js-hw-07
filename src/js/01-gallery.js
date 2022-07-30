@@ -2,39 +2,35 @@ import { galleryItems } from './gallery-items.js';
 // Change code below this line
 const gallery = document.querySelector(".gallery");
 
-const galleryPic = galleryItems.map((galleryPic) => 
-`<div class="gallery__item">
-<a class="gallery__link" href= "${galleryPic.original}">
-
+const galleryPics = galleryItems.map((galleryPics) => `<div class="gallery__item">
+<a class="gallery__link" href="${galleryPics.original}">
   <img
-    class= "gallery__image"
-    src= "${galleryPic.preview}"
-    data-source= "${galleryPic.original}"
-    alt= "${galleryPic.description}"
+    class="gallery__image"
+    src="${galleryPics.preview}"
+    data-source="${galleryPics.original}"
+    alt="${galleryPics.description}"
   />
-
 </a>
+</div>`).join("");
 
-</div>`).join(""); 
+gallery.innerHTML = galleryPics;
 
-gallery.innerHTML = galleryPic;
 
 gallery.addEventListener("click", (event) => {
     event.preventDefault();
 
-    const dataImg = event.target.getAttribute("data-source");
-
+    const Img = event.target.getAttribute("data-source");
     const instance = basicLightbox.create(`
-    <img src="${dataImg}" alt="${altImg}" />
-`, {
-            onShow: (instance) => {
+    <img src="${Img}" />`,
+      {
+        onShow: (instance) => {
             document.addEventListener("keydown", (event) => {
                   if (event.key === "Escape") instance.close();
             })
       }
 });
+  
+        
     
 instance.show();
 });
-
-console.log(galleryItems);
