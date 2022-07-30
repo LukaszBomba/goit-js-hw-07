@@ -2,19 +2,19 @@ import { galleryItems } from './gallery-items.js';
 // Change code below this line
 const gallery = document.querySelector(".gallery");
 
-const galleryItem = galleryItems
+const galleryPics = galleryItems
   .map(
-    (galleryItem) => `
-<a class="gallery__item" href="${galleryItem.original}">
+    (galleryPics) => `
+<a class="gallery__item" href="${galleryPics.original}">
   <img
   class="gallery__image"
-  src="${galleryItem.preview}"
-  alt="${galleryItem.description}" 
-  title = "${galleryItem.description}"/>
+  src="${galleryPics.preview}"
+  alt="${galleryPics.description}" 
+  title = "${galleryPics.description}"/>
 </a>`
   )
   .join("");
 
-gallery.innerHTML = galleryItem;
+gallery.innerHTML = galleryPics;
 
 new SimpleLightbox(".gallery a", { captionDelay: 100 });
